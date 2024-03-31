@@ -74,7 +74,7 @@ To get a local copy up and running follow these simple example steps.
 
 Fork, then download or clone the repo.
 ```bash
-git clone 
+git clone https://github.com/Ritik2402/ChessChamp-Multiplayer-Chess-Game.git
 ```
 
 For the **back-end**, go to home folder and install the dependencies once via the terminal.
