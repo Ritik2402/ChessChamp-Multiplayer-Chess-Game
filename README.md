@@ -124,5 +124,5 @@ Contributions are what make the open source community such an amazing place to b
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[product-screenshot1]: images/Screenshot2.PNG
-[product-screenshot2]: images/Screenshot1.PNG
+[product-screenshot1]: images/Screenshot1.PNG
+[product-screenshot2]: images/Screenshot2.PNG
