@@ -48,7 +48,7 @@ Online multiplayer chess game. You can play against your friend or against the c
 ![Product Name Screen Shot][product-screenshot1]
 
 - Game
-![Product Name Screen Shot][product-screenshot2]
+<img src="images/Screenshot2.png" alt="game">
 
 ### Features
 -There are 2 modes in this game.<br />
@@ -125,4 +125,3 @@ Contributions are what make the open source community such an amazing place to b
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [product-screenshot1]: images/Screenshot1.PNG
-[product-screenshot2]: images/Screenshot2.PNG
