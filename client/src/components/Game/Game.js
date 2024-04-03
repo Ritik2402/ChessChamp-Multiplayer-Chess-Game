@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import axios from 'axios';
 import io from 'socket.io-client';
-import Chess from 'chess.js';
 import Chessboard from 'chessboardjsx';
 import { URL } from '../Utils/Config';
 import Modal from 'react-bootstrap/Modal';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { Alert, Spinner, Table } from 'react-bootstrap';
 import UserContext from '../../context/UserContext';
 import chess_move_sound from '../../assets/chess_move_sound.mp3';
 
+const { Chess } = require('chess.js');
 // Learn more about what is fen in chess from here.
 // https://www.chess.com/terms/fen-chess
 
@@ -287,7 +287,7 @@ function Game(props) {
     // if user is not logged in then redirect to login page.
     if (redirectToLogin) {
         return (
-            <Redirect
+            <Navigate
                 to={{
                     pathname: '/login',
                     state: {

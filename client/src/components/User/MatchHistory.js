@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { Alert, Spinner, Table } from 'react-bootstrap';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { URL } from '../Utils/Config';
 import UserContext from '../../context/UserContext';
 
@@ -11,7 +11,7 @@ function MatchHistory(props) {
     const [validUser, setValidUser] = useState(false);
 
     const User = useContext(UserContext);
-    const history = useHistory();
+    const history = useNavigate();
 
     useEffect(() => {
         const fetchData = async () => {

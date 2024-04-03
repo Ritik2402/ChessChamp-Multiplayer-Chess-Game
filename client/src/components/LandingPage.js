@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
 import Home from './Home';
 import UserContext from '../context/UserContext';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ChessBG from '../assets/chess_bg_1.jpg';
 
 function LandingPage() {
@@ -12,7 +12,7 @@ function LandingPage() {
     let index = 0;
     const text = 'Chess Champ';
 
-    const history = useHistory();
+    const navigate = useNavigate();
     const messageRef = useRef(message);
     const cursorRef = useRef(cursor);
 
@@ -45,7 +45,7 @@ function LandingPage() {
             clearInterval(cursor);
             clearInterval(typing);
         };
-    }, []);
+    },[]);
 
     return User.user.isValid ? (
         <Home />
@@ -56,7 +56,7 @@ function LandingPage() {
                 <span id={`${cursor}`}>|</span>
                 <div style={{ fontSize: '28px' }}>
                     <div>
-                        <button className='btn btn-light' onClick={() => history.push('/register')} style={{ fontSize: '18px' }}>
+                        <button className='btn btn-light' onClick={() => navigate('/register')} style={{ fontSize: '18px' }}>
                             Register
                         </button>{' '}
                         to play chess with your friends
@@ -65,7 +65,7 @@ function LandingPage() {
                         Or{' '}
                         <button
                             className='btn btn-success'
-                            onClick={() => history.push('/g/computer')}
+                            onClick={() => navigate('/g/computer')}
                             style={{ fontSize: '18px' }}>
                             Play against Computer
                         </button>{' '}

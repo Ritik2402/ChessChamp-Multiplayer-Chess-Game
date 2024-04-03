@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { Alert, Spinner } from 'react-bootstrap';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { URL } from '../Utils/Config';
 import UserContext from '../../context/UserContext';
 
@@ -59,7 +59,7 @@ function UpdateProfile(props) {
 
     // if user has not logged in then redirect to login page.
     if (!validUser) {
-        return <Redirect to={{
+        return <Navigate to={{
             pathname: '/login',
             state: {from: props.location.pathname, message: 'Please Login to continue'}
         }} />

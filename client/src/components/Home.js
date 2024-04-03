@@ -1,24 +1,24 @@
 import React, { useContext } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 import { URL } from './Utils/Config';
 import ChessBG from '../assets/chess_bg_1.jpg';
 
-// create one horizonatal line put each button on different side and put bacground picture with lower opacity and littble bit darker.         
+// create one horizonatal line put each button on different side and put background picture with lower opacity and little bit darker.         
 
 function Home() {
-    const history = useHistory();
+    const   navigate = useNavigate();
     const User = useContext(UserContext);
 
     const handleFriendsGame = async () => {
         // create the game and also pass the starting fen position of chess.
         const res = await axios.post(`${URL }/g/create`, { id: User.user.id, fen: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1' });
-        history.push(`/g/${res.data.gameId}`);
+        navigate(`/g/${res.data.gameId}`);
     }
 
     const handleComputerGame = async () => {
-        history.push(`/g/computer`);
+        navigate(`/g/computer`);
     }
 
     return (

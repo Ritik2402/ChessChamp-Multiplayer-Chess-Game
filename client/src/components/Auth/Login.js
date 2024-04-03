@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Alert, Spinner } from 'react-bootstrap';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { URL } from '../Utils/Config';
 import UserContext from '../../context/UserContext';
 import ChessBG from '../../assets/chess_bg_1.jpg';
@@ -13,7 +13,7 @@ function Login(props) {
     const [message, setMessage] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
-    const history = useHistory();
+    const navigate = useNavigate();
     const User = useContext(UserContext);
 
     useEffect(() => {
@@ -47,9 +47,9 @@ function Login(props) {
             // if previously user was redirected from some component to login then after login redirect back to original component.
             // else redirect to home apge
             if (props.location.state && props.location.state.from) {
-                history.push(props.location.state.from);
+                navigate(props.location.state.from);
             } else {
-                history.push('/');
+                navigate('/');
             }
         } catch (error) {
             if (error.response && error.response.data) setError(error.response.data.error);

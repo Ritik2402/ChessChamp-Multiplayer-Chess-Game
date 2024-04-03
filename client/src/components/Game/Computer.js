@@ -1,20 +1,18 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import axios from 'axios';
-import Chess from 'chess.js';
 import Chessboard from 'chessboardjsx';
 import { Spinner, Table, Modal } from 'react-bootstrap';
 import UserContext from '../../context/UserContext';
-import { GenerateMove } from '../Utils/GenerateMove';
-
 import chess_move_sound from '../../assets/chess_move_sound.mp3';
 
+import GenerateMove from '../Utils/GenerateMove';
+
+const { Chess } = require('chess.js');
 
 
 /*
 for the generation of computer's move minimax algorithm is used. it is further optimized using alpha beta pruning.
 */
-
-
 
 
 function Computer() {
@@ -98,7 +96,7 @@ function Computer() {
             isMounted.current = false;
             signal.cancel('Api calls are being cancelled');
         };
-    }, []);
+    },[]);
 
     const handleMove = async (move) => {
         // if user tries to move some piece but it is not user's turn then return.

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 import Header from './components/Header';
 import LandingPage from './components/LandingPage';
@@ -64,20 +64,20 @@ function App() {
             <BrowserRouter>
                 <UserContext.Provider value={{ user: user, setUser: setUser }}>
                     <Header />
-                    <Switch>
-                        <Route component={LandingPage} exact path='/' />
-                        <Route component={Login} exact path='/login' />
-                        <Route component={Register} exact path='/register' />
-                        <Route component={ResetPassword} exact path='/resetPassword' />
-                        <Route component={NewPassword} exact path='/reset/:resetToken' />
-                        <Route component={LeaderBoard} exact path='/g/leaderboard' />
-                        <Route component={Computer} exact path='/g/computer' />
-                        <Route component={Game} exact path='/g/:gameId' />
-                        <Route component={UpdateProfile} exact path='/u/updateProfile' />
-                        <Route component={UserProfile} exact path='/u/:userId' />
-                        <Route component={MatchHistory} exact path='/u/:userId/matches' />
-                        <Route component={() => "404 Page not found"} path="*" />
-                    </Switch>
+                    <Routes>
+                        <Route element={<LandingPage/>} exact path='/' />
+                        <Route element={<Login/>} exact path='/login' />
+                        <Route element={<Register/>} exact path='/register' />
+                        <Route element={<ResetPassword/>} exact path='/resetPassword' />
+                        <Route element={<NewPassword/>} exact path='/reset/:resetToken' />
+                        <Route element={<LeaderBoard/>} exact path='/g/leaderboard' />
+                        <Route element={<Computer/>} exact path='/g/computer' />
+                        <Route element={<Game/>} exact path='/g/:gameId' />
+                        <Route element={<UpdateProfile/>} exact path='/u/updateProfile' />
+                        <Route element={<UserProfile/>} exact path='/u/:userId' />
+                        <Route element={<MatchHistory/>} exact path='/u/:userId/matches' />
+                        <Route element={() => "404 Page not found"} path="*" />
+                    </Routes>
                 </UserContext.Provider>
             </BrowserRouter>
         </div>

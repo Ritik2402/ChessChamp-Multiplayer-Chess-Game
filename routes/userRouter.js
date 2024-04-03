@@ -11,8 +11,6 @@ require('dotenv').config();
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
-
-
 Router.post('/register', async (req, res) => {
     
     // validate the user data.

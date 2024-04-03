@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 
 function Header() {
-    const history = useHistory();
+    const navigate = useNavigate();
     const User = useContext(UserContext);
     const handleRegister = () => {
-        history.push('/register');
+        navigate('/register');
     };
     const handleLogin = () => {
-        history.push('/login');
+        navigate('/login');
     };
     const handleLogout = () => {
         // remove user data form UserContext and remove token from local storage
@@ -20,7 +20,7 @@ function Header() {
             rating: undefined,
         });
         localStorage.setItem('token', '');
-        history.push('/');
+        navigate('/');
     };
     return (
         <nav className='navbar navbar-dark bg-primary'>

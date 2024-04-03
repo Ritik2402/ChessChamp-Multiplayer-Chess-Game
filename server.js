@@ -45,13 +45,11 @@ if (process.env.NODE_ENV === 'production') {
 
 // connect to mongodb database
 mongoose.connect(
-    process.env.MONGO_URI,
-    { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
-    (err) => {
-        if (err) throw err;
-        console.log('MongoDB is connected');
-    }
-);
+    process.env.MONGO_URI)
+.catch((err) => {
+    if (err) throw err;
+    console.log('MongoDB is connected');
+})
 
 const port = process.env.PORT || 5000;
 server.listen(port, () => {
